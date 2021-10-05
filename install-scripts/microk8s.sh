@@ -5,6 +5,7 @@ sudo snap install core
 
 # установка и настройка kubectl
 sudo snap install kubectl --classic
+echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 # установка microK8S
 sudo snap install microk8s --classic

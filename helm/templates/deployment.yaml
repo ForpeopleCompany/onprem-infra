@@ -21,6 +21,8 @@ spec:
           ports:
             - containerPort: 5500
           env:
+            - name: RAND
+              value: {{ randAlphaNum 20 | upper }}
             - name: OM_MONGO
               value: "mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local?authSource=orgmanager"
             - name: OM_MONGO_DB
