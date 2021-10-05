@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kibana
+spec:
+  type: ExternalName
+  externalName: kibana-logging.kube-system.svc.cluster.local
+  ports:
+  - port: 5601
