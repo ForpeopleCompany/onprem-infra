@@ -4,10 +4,10 @@ sudo apt install snapd
 sudo snap install core
 
 # установка и настройка kubectl
-snap install kubectl --classic
+sudo snap install kubectl --classic
 
 # установка microK8S
-snap install microk8s --classic
+sudo snap install microk8s --classic
 microk8s enable dns storage ingress helm3 host-access
 
 # настройка прав доступа и конфига для kubectl
