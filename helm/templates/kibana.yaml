@@ -4,6 +4,6 @@ metadata:
   name: kibana
 spec:
   type: ExternalName
-  externalName: kibana-logging.kube-system.svc.cluster.local
+  externalName: kibana-kibana.elastic.svc.cluster.local
   ports:
   - port: 5601
