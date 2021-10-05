@@ -7,7 +7,7 @@ helm upgrade elastic \
 elastic/elasticsearch
 
 helm upgrade kibana \
-   --namespace elastic \
-   --create-namespace \   
-   --install \
-elastic/kibana 
+  --namespace elastic \
+  --create-namespace \
+  --install \
+elastic/kibana
