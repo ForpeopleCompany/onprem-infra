@@ -14,6 +14,7 @@ microk8s enable dns storage ingress helm3 host-access
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 sudo microk8s config > ~/.kube/config
+newgrp microk8s
 
 # установка и настройка helm
 sudo snap install helm --classic

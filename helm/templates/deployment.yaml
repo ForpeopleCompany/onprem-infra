@@ -45,7 +45,13 @@ spec:
             - name: OM_SMTP_PORT
               value: {{ .Values.smtp.port | quote }}
 {{ end }}
-            - name: OM_DEBUG
-              value: "1"
             - name: OM_LOG_ELASTIC
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
+{{ if .Values.options.mutateData }}
+            - name: OM_IMPORT_MUTATE
+              value: 1
+{{ end }}
+{{ if .Values.options.debugEnabled }}
+            - name: OM_DEBUG
+              value: 1
+{{ end }}
