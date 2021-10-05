@@ -49,9 +49,9 @@ spec:
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
 {{ if .Values.options.mutateData }}
             - name: OM_IMPORT_MUTATE
-              value: 1
+              value: "1"
 {{ end }}
 {{ if .Values.options.debugEnabled }}
             - name: OM_DEBUG
-              value: 1
+              value: "1"
 {{ end }}
