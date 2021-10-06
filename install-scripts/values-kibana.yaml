@@ -1,6 +1,13 @@
-name: prod
 extraEnvs:
   - name: SERVER_BASEPATH
     value: /util/kibana
   - name: SERVER_REWRITEBASEPATH
     value: 'true'
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "2Gi"
+  limits:
+    cpu: "1000m"
+    memory: "2Gi"
