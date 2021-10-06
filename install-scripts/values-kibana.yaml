@@ -13,3 +13,4 @@ resources:
     memory: "2Gi"
 
 healthCheckPath: "/util/kibana/app/kibana"
+elasticsearchHosts: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
