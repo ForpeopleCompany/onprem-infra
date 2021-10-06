@@ -5,6 +5,7 @@ extraEnvs:
     value: 'true'
 
 imageTag: "7.10.2"
+image: "docker.elastic.co/kibana/kibana-oss"
 
 resources:
   requests:
@@ -14,5 +15,5 @@ resources:
     cpu: "1000m"
     memory: "2Gi"
 
-healthCheckPath: "/util/kibana/app/kibana"
+healthCheckPath: "/util/kibana/api/status"
 elasticsearchHosts: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
