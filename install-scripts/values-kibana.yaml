@@ -3,4 +3,4 @@ extraEnvs:
   - name: SERVER_BASEPATH
     value: /util/kibana
   - name: SERVER_REWRITEBASEPATH
-    value: true
+    value: 'true'
