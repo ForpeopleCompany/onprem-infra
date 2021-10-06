@@ -1,12 +1,12 @@
 helm upgrade elastic \
-  --set replicas=1 \
-  --set discovery.type=single-node \
+  -f values-elastic.yaml \
   --namespace elastic \
   --create-namespace \
   --install \
 elastic/elasticsearch
 
 helm upgrade kibana \
+  -f values-kibana.yaml \
   --namespace elastic \
   --create-namespace \
   --install \

@@ -31,29 +31,29 @@ spec:
               value: {{ .Values.options.config }} 
             - name: OM_HOST
               value: https://{{ .Values.options.url }} 
-{{ if .Values.saml }}              
+{{- if .Values.saml }}              
             - name: OM_SAML_LOGIN
               value: {{ .Values.saml.loginUrl }}
             - name: OM_SAML_CERT
               value: {{ .Values.saml.certificate | quote }}
             - name: OM_SAML_ENTITYID
               value: {{ .Values.saml.entityId }}
-{{ end }}
-{{ if .Values.smtp }}              
+{{- end }}
+{{- if .Values.smtp }}              
             - name: OM_SMTP_MAILFROM
               value: {{ .Values.smtp.mailFrom | quote }}
             - name: OM_SMTP_SERVER
               value: {{ .Values.smtp.server | quote }}
             - name: OM_SMTP_PORT
               value: {{ .Values.smtp.port | quote }}
-{{ end }}
+{{- end }}
             - name: OM_LOG_ELASTIC
               value: "http://elasticsearch-master.elastic.svc.cluster.local:9200"
-{{ if .Values.options.mutateData }}
+{{- if .Values.options.mutateData }}
             - name: OM_IMPORT_MUTATE
               value: "1"
-{{ end }}
-{{ if .Values.options.debugEnabled }}
+{{- end }}
+{{- if .Values.options.debugEnabled }}
             - name: OM_DEBUG
               value: "1"
-{{ end }}
+{{- end }}
