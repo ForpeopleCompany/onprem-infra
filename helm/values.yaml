@@ -6,3 +6,7 @@ tag: edge
 options:
   mutateData: true
   debugEnabled: false
+
+smtp:
+  enabled: false
+  ssl: false
