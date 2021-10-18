@@ -9,7 +9,7 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 # установка microK8S
 sudo snap install microk8s --classic
-microk8s enable dns storage ingress helm3 host-access
+microk8s enable dns storage ingress helm3
 
 # настройка прав доступа и конфига для kubectl
 sudo usermod -a -G microk8s $USER
