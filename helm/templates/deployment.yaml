@@ -59,3 +59,11 @@ spec:
             - name: OM_DEBUG
               value: "1"
 {{- end }}
+{{- if .Values.sentry.enabled }}
+            - name: OM_USE_SENTRY
+              value: "1"
+{{- if .Values.sentry.env }}
+            - name: SENTRY_ENVIRONMENT
+              value: {{- .Values.sentry.env | quote }}
+{{- end }}
+{{- end}}

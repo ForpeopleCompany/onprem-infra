@@ -10,3 +10,8 @@ options:
 smtp:
   enabled: false
   ssl: false
+
+sentry:
+  enabled: true
+  env: test
+  rate: 1
