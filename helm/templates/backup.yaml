@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: mongodump
+spec:
+ accessModes:
+ - ReadWriteOnce
+ resources:
+   requests:
+     storage: 1Gi
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mongodump
+spec:
+  schedule: '0 3 * * *'
+  concurrencyPolicy: forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+          - name: mongodump
+            persistentVolumeClaim:
+              claimName: mongodump
+          restartPolicy: Never
+          containers:
+            - name: mongodb
+              image: mongo
+              command : ["/bin/sh", "-c"]
+              args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local?authSource=orgmanager\" -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
+              #args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local?authSource=orgmanager\" -u user_name -p user_password --authenticationDatabase db_name -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
+              volumeMounts:
+              - mountPath: "/usr/share/mongodump/"
+                name: mongodump
