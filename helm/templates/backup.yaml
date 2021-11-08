@@ -15,7 +15,7 @@ metadata:
   name: mongodump
 spec:
   schedule: '0 3 * * *'
-  concurrencyPolicy: forbid
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
