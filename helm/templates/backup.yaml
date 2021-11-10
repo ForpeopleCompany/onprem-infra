@@ -16,7 +16,7 @@ kind: CronJob
 metadata:
   name: mongodump
 spec:
-  schedule: {{ .Values.backup.mongodb.schedule }}
+  schedule: {{ .Values.backup.mongodb.schedule | quote }}
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 7
   failedJobsHistoryLimit: 3
