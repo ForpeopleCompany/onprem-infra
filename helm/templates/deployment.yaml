@@ -55,15 +55,15 @@ spec:
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
 {{- if .Values.options.mutateData }}
             - name: OM_IMPORT_MUTATE
-              value: "1"
+              value: "true"
 {{- end }}
 {{- if .Values.options.debugEnabled }}
             - name: OM_DEBUG
-              value: "1"
+              value: "true"
 {{- end }}
 {{- if .Values.sentry.enabled }}
             - name: OM_USE_SENTRY
-              value: "1"
+              value: "true"
 {{- if .Values.sentry.env }}
             - name: SENTRY_ENVIRONMENT
               value: {{ .Values.sentry.env | quote }}
