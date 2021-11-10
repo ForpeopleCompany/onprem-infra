@@ -8,8 +8,8 @@ spec:
   accessModes:
   - ReadWriteOnce
   resources:
-   requests:
-     storage: 1Gi
+    requests:
+      storage: 1Gi
   hostPath:
     path: "/var/mongo-backups"
 ---
@@ -38,5 +38,5 @@ spec:
               args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local/?authSource=orgmanager\" -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
               volumeMounts:
               - mountPath: "/usr/share/mongodump/"
-                name: mongodump-hostpath
+                name: mongodump
 {{- end }}
