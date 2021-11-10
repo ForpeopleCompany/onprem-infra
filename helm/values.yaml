@@ -9,7 +9,7 @@ options:
 
 smtp:
   enabled: false
-  ssl: false
+  ssl: ""
 
 sentry:
   enabled: true
