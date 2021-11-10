@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
- name: mongodump-hostpath
+ name: mongodump
 spec:
   storageClassName: microk8s-hostpath
   accessModes:
@@ -10,8 +10,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  hostPath:
-    path: "/var/mongo-backups"
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -29,7 +27,7 @@ spec:
           volumes:
           - name: mongodump
             persistentVolumeClaim:
-              claimName: mongodump-hostpath
+              claimName: mongodump
           restartPolicy: Never
           containers:
             - name: mongodb
