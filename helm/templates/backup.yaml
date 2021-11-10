@@ -2,13 +2,16 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
- name: mongodump
+ name: mongodump-hostpath
 spec:
- accessModes:
- - ReadWriteOnce
- resources:
+  storageClassName: microk8s-hostpath
+  accessModes:
+  - ReadWriteOnce
+  resources:
    requests:
      storage: 1Gi
+  hostPath:
+    path: "/var/mongo-backups"
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -26,7 +29,7 @@ spec:
           volumes:
           - name: mongodump
             persistentVolumeClaim:
-              claimName: mongodump
+              claimName: mongodump-hostpath
           restartPolicy: Never
           containers:
             - name: mongodb
@@ -35,5 +38,5 @@ spec:
               args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local/?authSource=orgmanager\" -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
               volumeMounts:
               - mountPath: "/usr/share/mongodump/"
-                name: mongodump
+                name: mongodump-hostpath
 {{- end }}
