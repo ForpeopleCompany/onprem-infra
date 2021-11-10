@@ -31,7 +31,7 @@ spec:
             - name: mongodb
               image: mongo
               command : ["/bin/sh", "-c"]
-              args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local?authSource=orgmanager\" -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
+              args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local/?authSource=orgmanager\" -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
               #args: ["mongodump --uri \"mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local?authSource=orgmanager\" -u user_name -p user_password --authenticationDatabase db_name -o /usr/share/mongodump/$(date +\"%d%m%H\")"]
               volumeMounts:
               - mountPath: "/usr/share/mongodump/"
