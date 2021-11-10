@@ -14,7 +14,7 @@ kind: CronJob
 metadata:
   name: mongodump
 spec:
-  schedule: '0 3 * * *'
+  schedule: '* * * * *'
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 7
   failedJobsHistoryLimit: 3
