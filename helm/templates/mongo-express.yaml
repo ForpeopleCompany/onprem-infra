@@ -36,6 +36,8 @@ spec:
               value: qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN
             - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
               value: 'false'
+            - name: ME_CONFIG_REQUEST_SIZE
+              value: '100mb'
 ---
 apiVersion: v1
 kind: Service
