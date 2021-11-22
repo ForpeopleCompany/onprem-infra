@@ -20,14 +20,8 @@ spec:
           ports:
             - containerPort: 8081
           env:
-            - name: ME_CONFIG_MONGODB_AUTH_DATABASE
-              value: orgmanager
-            - name: ME_CONFIG_MONGODB_AUTH_USERNAME
-              value: dbuser
-            - name: ME_CONFIG_MONGODB_AUTH_PASSWORD
-              value: qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN
-            - name: ME_CONFIG_MONGODB_SERVER
-              value: mongodb.mongodb.svc.cluster.local
+            - name: ME_CONFIG_MONGODB_URL
+              value: {{ .Values.options.mongoUrl | quote}}
             - name: ME_CONFIG_SITE_BASEURL
               value: /util/mongodb/
             - name: ME_CONFIG_BASICAUTH_USERNAME
