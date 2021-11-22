@@ -21,7 +21,9 @@ spec:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_URL
-              value: {{ .Values.options.mongoUrl | quote}}
+              value: {{ .Values.options.mongoUrl | quote }}
+            - name: ME_CONFIG_MONGODB_AUTH_DATABASEß
+              value: {{ .Values.options.mongoDb | quote }}
             - name: ME_CONFIG_SITE_BASEURL
               value: /util/mongodb/
             - name: ME_CONFIG_BASICAUTH_USERNAME
