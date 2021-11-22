@@ -12,6 +12,7 @@ options:
 smtp:
   enabled: false
   ssl: ""
+  sendToRecipient: false
 
 backup:
   mongodb:
