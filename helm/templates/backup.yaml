@@ -1,9 +1,9 @@
 {{- if .Values.backup.mongodb.enabled }} 
-apiVersion: v1
-kind: Namespace
-metadata: 
-  name: backup
----
+# apiVersion: v1
+# kind: Namespace
+# metadata: 
+#   name: backup
+# ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -20,7 +20,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: mongodump
-  namespace: backup
+  # namespace: backup
 spec:
   schedule: {{ .Values.backup.mongodb.schedule | quote }}
   concurrencyPolicy: Forbid
