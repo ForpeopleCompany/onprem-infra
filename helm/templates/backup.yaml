@@ -15,6 +15,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: mongodump
+  namespace: backup
 spec:
   schedule: {{ .Values.backup.mongodb.schedule | quote }}
   concurrencyPolicy: Forbid
