@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: AspNetDataProtectionKeys
+spec:
+  storageClassName: microk8s-hostpath
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,6 +36,9 @@ spec:
               cpu: "1"
           ports:
             - containerPort: 5500
+          volumeMounts:
+              - mountPath: "/root/.aspnet/DataProtection-Keys/"
+                name: AspNetDataProtectionKeys
           env:
             - name: RAND
               value: {{ randAlphaNum 20 | upper }}
