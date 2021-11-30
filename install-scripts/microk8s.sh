@@ -19,5 +19,5 @@ helm repo add elastic https://helm.elastic.co
 # настройка прав доступа и конфига для kubectl
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
-sudo microk8s config > ~/.kube/config
+microk8s config > ~/.kube/config
 newgrp microk8s
