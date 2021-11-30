@@ -7,7 +7,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
- name: mongodump
+  name: mongodump
 spec:
   storageClassName: microk8s-hostpath
   accessModes:
