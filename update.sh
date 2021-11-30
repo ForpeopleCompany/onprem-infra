@@ -1,1 +1,1 @@
-helm upgrade orgmanager ./helm --install -f target-values.yaml --wait
+helm upgrade orgmanager ./helm --install -f target-values.yaml --wait --create-namespace
