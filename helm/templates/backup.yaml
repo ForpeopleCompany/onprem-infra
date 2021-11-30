@@ -1,5 +1,10 @@
 {{- if .Values.backup.mongodb.enabled }} 
 apiVersion: v1
+  kind: Namespace
+  metadata: 
+    name: backup
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
  name: mongodump
