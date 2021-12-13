@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: aspnetkeys
           persistentVolumeClaim:
-            claimName: aspnetkeys
+            claimName: aspnetkeys2
       containers:
         - name: orgmanager
           image: cr.yandex/crpj49o8ldonf3nnjpbo/orgmanager:{{ .Values.tag }}
