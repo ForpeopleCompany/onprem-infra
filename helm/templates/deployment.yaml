@@ -22,10 +22,10 @@ spec:
         - name: orgmanager
           image: cr.yandex/crpj49o8ldonf3nnjpbo/orgmanager:{{ .Values.tag }}
           imagePullPolicy: Always
-          resources:
-            requests:
-              memory: "1G"
-              cpu: "250m"
+          # resources:
+          #   requests:
+          #     memory: "1G"
+          #     cpu: "250m"
           ports:
             - containerPort: 5500
           volumeMounts:
