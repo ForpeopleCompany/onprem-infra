@@ -42,13 +42,15 @@ spec:
               value: {{ .Values.options.config }} 
             - name: OM_HOST
               value: https://{{ .Values.options.url }}
-{{- if .Values.saml }}              
+{{- if .Values.saml.enabled }}              
             - name: OM_SAML_LOGIN
               value: {{ .Values.saml.loginUrl }}
             - name: OM_SAML_CERT
               value: {{ .Values.saml.certificate | quote }}
             - name: OM_SAML_ENTITYID
               value: {{ .Values.saml.entityId }}
+            - name: OM_SAML_CREATE_USER
+              value: {{ .Values.saml.createUser | quote }}
 {{- end }}
 {{- if .Values.smtp.enabled }}              
             - name: OM_SMTP_MAILFROM

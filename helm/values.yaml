@@ -9,6 +9,10 @@ options:
   mongoUrl: mongodb://dbuser:qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN@mongodb.mongodb.svc.cluster.local/orgmanager?authSource=orgmanager
   mongoDb: orgmanager
 
+saml:
+  enabled: true
+  createUser: false
+
 smtp:
   enabled: false
   ssl: ""
