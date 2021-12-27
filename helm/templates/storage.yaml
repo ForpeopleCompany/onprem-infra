@@ -1,4 +1,4 @@
-{{ -if .Values.storage.filesystem.enabled }}
+{{- if .Values.storage.filesystem.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -10,4 +10,4 @@ spec:
   resources:
     requests:
       storage: {{ -if .Values.storage.filesystem.storage }}
-{{ -end }}
+{{- end }}
