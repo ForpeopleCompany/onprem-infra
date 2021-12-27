@@ -1,0 +1,13 @@
+{{ -if .Values.storage.filesystem.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "storage"
+spec:
+  storageClassName: microk8s-hostpath
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ -if .Values.storage.filesystem.storage }}
+{{ -end }}
