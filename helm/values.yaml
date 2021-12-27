@@ -3,6 +3,12 @@ label:
 
 tag: edge
 
+storage:
+  filesystem:
+    enabled: true
+    mount: /var/storage/
+    storage: 30Gi
+
 options:
   mutateData: true
   debugEnabled: false

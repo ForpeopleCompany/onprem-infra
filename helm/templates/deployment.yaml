@@ -18,6 +18,9 @@ spec:
         - name: aspnetkeys
           persistentVolumeClaim:
             claimName: aspnetkeys2
+        - name: storage
+          persistentVolumeClaim:
+            claimName: storage
       containers:
         - name: orgmanager
           image: cr.yandex/crpj49o8ldonf3nnjpbo/orgmanager:{{ .Values.tag }}
@@ -31,6 +34,8 @@ spec:
           volumeMounts:
               - mountPath: "/root/.aspnet/DataProtection-Keys/"
                 name: aspnetkeys
+              - mountPath: {{ .Values.storage.filesystem.mount | quote }}
+                name: storage
           env:
             - name: RAND
               value: {{ randAlphaNum 20 | upper }}
@@ -68,6 +73,12 @@ spec:
               value: "Recipient"
 {{- end }}    
 {{- end }}
+{{ -if .Values.storage.filesystem.enabled }}
+            - name: OM_STORAGE_PREFIX
+              value: {{ .Values.storage.filesystem.mount | quote }}
+            - name: OM_STORAGE_MODE
+              value: FileSystem
+{{ -end}}
             - name: OM_LOG_ELASTIC
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
             - name: OM_IMPORT_MUTATE
