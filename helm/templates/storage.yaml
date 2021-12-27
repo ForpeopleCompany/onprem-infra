@@ -9,5 +9,5 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: {{ -if .Values.storage.filesystem.storage }}
+      storage: {{ .Values.storage.filesystem.storage | quote }}
 {{- end }}
