@@ -73,12 +73,12 @@ spec:
               value: "Recipient"
 {{- end }}    
 {{- end }}
-{{ -if .Values.storage.filesystem.enabled }}
+{{- if .Values.storage.filesystem.enabled }}
             - name: OM_STORAGE_PREFIX
               value: {{ .Values.storage.filesystem.mount | quote }}
             - name: OM_STORAGE_MODE
               value: FileSystem
-{{ -end}}
+{{- end}}
             - name: OM_LOG_ELASTIC
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
             - name: OM_IMPORT_MUTATE
