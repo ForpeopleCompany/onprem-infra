@@ -37,6 +37,8 @@ spec:
               - mountPath: {{ .Values.storage.filesystem.mount | quote }}
                 name: storage
           env:
+            - name: DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE
+              value: "false"
             - name: RAND
               value: {{ randAlphaNum 20 | upper }}
             - name: OM_MONGO
