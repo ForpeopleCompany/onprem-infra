@@ -21,15 +21,24 @@ spec:
             - containerPort: 8081
           env:
             - name: ME_CONFIG_MONGODB_URL
-              value: {{ .Values.options.mongoUrl | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: mongoUrl
             - name: ME_CONFIG_MONGODB_AUTH_DATABASE
               value: {{ .Values.options.mongoDb | quote }}
             - name: ME_CONFIG_SITE_BASEURL
               value: /util/mongodb/
             - name: ME_CONFIG_BASICAUTH_USERNAME
-              value: admin15
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: mongoExpressUserName
             - name: ME_CONFIG_BASICAUTH_PASSWORD
-              value: qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: mongoExpressPassword
             - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
               value: 'false'
             - name: ME_CONFIG_REQUEST_SIZE
