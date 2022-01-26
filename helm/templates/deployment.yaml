@@ -42,7 +42,10 @@ spec:
             - name: RAND
               value: {{ randAlphaNum 20 | upper }}
             - name: OM_MONGO
-              value: {{ .Values.options.mongoUrl | quote}}
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: mongoUrl
             - name: OM_MONGO_DB
               value: {{ .Values.options.mongoDb | quote}}
             - name: OM_CONFIG
