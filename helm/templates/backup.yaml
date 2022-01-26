@@ -35,19 +35,18 @@ spec:
             persistentVolumeClaim:
               claimName: mongodump
           restartPolicy: Never
-          
             containers:
-            - name: mongodb
-              image: mongo
-              command : ["/bin/sh", "-c"]
-              args: ["mongodump --uri $MONGOURL -o /usr/share/mongodump/$(date +\"%Y.%d%m.%H%M\")"]
-              volumeMounts:
-              - mountPath: "/usr/share/mongodump/"
-                name: mongodump
-              env:
-              - name: MONGOURL
-                valueFrom:
-                  secretKeyRef:
-                    name: orgmanager-secrets
-                    key: mongoUrl
+              - name: mongodb
+                image: mongo
+                command : ["/bin/sh", "-c"]
+                args: ["mongodump --uri MONGOURL -o /usr/share/mongodump/$(date +\"%Y.%d%m.%H%M\")"]
+                volumeMounts:
+                - mountPath: "/usr/share/mongodump/"
+                  name: mongodump
+                env:
+                - name: MONGOURL
+                  valueFrom:
+                    secretKeyRef:
+                      name: orgmanager-secrets
+                      key: mongoUrl
 {{- end }}
