@@ -33,3 +33,7 @@ sentry:
   enabled: true
   env: test
   rate: 1
+
+mongoExpress:
+  userName: admin15
+  password: qE6dP3mK1jX4rB5aH4cY6uP7lF3vV8pN
