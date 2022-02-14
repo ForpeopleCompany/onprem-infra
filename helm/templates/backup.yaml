@@ -8,6 +8,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mongodump
+  namespace: backup
 spec:
   accessModes:
   - ReadWriteOnce
