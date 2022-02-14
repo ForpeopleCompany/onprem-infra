@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "aspnetkeys2"
+  name: {{ .Values.misc.aspnetSecretsClaim | qoute }}
 spec:
   storageClassName: microk8s-hostpath
   accessModes:
