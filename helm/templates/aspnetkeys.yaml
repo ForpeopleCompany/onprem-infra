@@ -3,7 +3,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: "aspnetkeys2"
 spec:
-  storageClassName: microk8s-hostpath
   accessModes:
   - ReadWriteMany
   resources:

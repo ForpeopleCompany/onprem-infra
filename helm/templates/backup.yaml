@@ -9,7 +9,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: mongodump
 spec:
-  storageClassName: microk8s-hostpath
   accessModes:
   - ReadWriteOnce
   resources:
