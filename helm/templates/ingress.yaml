@@ -10,7 +10,7 @@ metadata:
       more_set_headers "X-Content-Type-Options: nosniff";
       more_set_headers "X-Frame-Options: DENY";
       more_set_headers "X-Xss-Protection: 1";
-      more_set_headers "Content-Security-Policy: default-src 'self';img-src 'self'; style-src 'self' 'unsafe-inline';font-src 'self' data:";
+      more_set_headers "Content-Security-Policy: default-src 'self';img-src 'self' data:; style-src 'self' 'unsafe-inline';font-src 'self' data:";
 spec:
   tls:
     - hosts:
@@ -27,17 +27,3 @@ spec:
                 name: {{ .Release.Name }}-service
                 port:
                   number: 5500
-          - path: /util/mongodb
-            pathType: Prefix
-            backend:
-              service:
-                name: mongo-express-service
-                port:
-                  number: 8081            
-          - path: /util/kibana
-            pathType: Prefix
-            backend:
-              service:
-                name: kibana
-                port:
-                  number: 5601
