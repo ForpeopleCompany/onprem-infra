@@ -11,6 +11,7 @@ metadata:
       more_set_headers "X-Frame-Options: DENY";
       more_set_headers "X-Xss-Protection: 1";
       more_set_headers "Content-Security-Policy: default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline'";
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   tls:
     - hosts:
@@ -34,3 +35,10 @@ spec:
                 name: kibana
                 port:
                   number: 5601
+          - path: /util/grafana(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 80                  
