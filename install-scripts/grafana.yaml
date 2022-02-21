@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+      kubernetes.io/ingress.class: nginx
+    # ingress.kubernetes.io/auth-type: "basic"
+    # ingress.kubernetes.io/auth-secret: {{ .Values.ingress.basic.secret }}
+  name: grafana
+
+spec:
+  tls:
+    - hosts:
+      - grafana.forpeople.dev
+  rules:
+    - host: grafana.forpeople.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: loki-grafana
+                port:
+                  number: 3000            
+    

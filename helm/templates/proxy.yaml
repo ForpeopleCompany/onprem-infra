@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana
+spec:
+  type: ExternalName
+  externalName: loki-grafana.grafana.svc.cluster.local
+  ports:
+  - port: 3000
