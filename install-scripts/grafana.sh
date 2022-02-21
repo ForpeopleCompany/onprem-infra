@@ -8,3 +8,7 @@ helm upgrade --install loki grafana/loki-stack \
 
 echo "Grafana Password"
 kubectl get secret --namespace grafana loki-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+
+
