@@ -27,7 +27,7 @@ spec:
                 name: {{ .Release.Name }}-service
                 port:
                   number: 5500
-          - path: /util/grafana
+          - path: /util/grfn
             pathType: Prefix
             backend:
               service:
