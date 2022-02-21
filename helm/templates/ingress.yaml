@@ -20,14 +20,14 @@ spec:
     - host: {{ .Values.options.url }}
       http:
         paths:
-          - path: /zzz
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: {{ .Release.Name }}-service
                 port:
                   number: 5500
-          - path: /
+          - path: /grafana
             pathType: Prefix
             backend:
               service:
