@@ -34,10 +34,10 @@ spec:
                 name: kibana
                 port:
                   number: 5601
-          - path: /util/grafana
-            pathType: Prefix
-            backend:
-              service:
-                name: grafana
-                port:
-                  number: 80                  
+          # - path: /util/grafana
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: grafana
+          #       port:
+          #         number: 80                  
