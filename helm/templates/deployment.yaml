@@ -115,4 +115,4 @@ spec:
               value: {{ .Values.ldap.filter | quote }}                            
             - name: OM_LDAP_PAGED
               value: {{ .Values.ldap.paged }}                            
-{{- end}}
+{{- end }}
