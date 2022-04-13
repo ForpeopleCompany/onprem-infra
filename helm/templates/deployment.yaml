@@ -99,6 +99,7 @@ spec:
             - name: SENTRY_ENVIRONMENT
               value: {{ .Values.sentry.env | quote }}
 {{- end }}
+{{- end }}
 {{- if .Values.ldap.enabled }}
             - name: OM_LDAP_HOST
               value: {{ .Values.ldap.host | quote }}
