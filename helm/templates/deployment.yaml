@@ -99,4 +99,20 @@ spec:
             - name: SENTRY_ENVIRONMENT
               value: {{ .Values.sentry.env | quote }}
 {{- end }}
+{{- if .Values.ldap.enabled }}
+            - name: OM_LDAP_HOST
+              value: {{ .Values.ldap.host | quote }}
+            - name: OM_LDAP_USERNAME
+              value: {{ .Values.ldap.username | quote }}
+            - name: OM_LDAP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: ldapPassword
+            - name: OM_LDAP_ROOT
+              value: {{ .Values.ldap.root | quote }}
+            - name: OM_LDAP_FILTER
+              value: {{ .Values.ldap.filter | quote }}                            
+            - name: OM_LDAP_PAGED
+              value: {{ .Values.ldap.paged }}                            
 {{- end}}
