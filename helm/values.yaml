@@ -28,6 +28,7 @@ smtp:
   server: ""
   port: 25
   domains: ""
+  mailFrom: ""
 
 backup:
   mongodb:
