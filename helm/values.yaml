@@ -24,7 +24,7 @@ smtp:
   ssl: ""
   sendToRecipient: false
   userName: ""
-  password: ""
+  password: "000"
   server: ""
   port: 25
   domains: ""
