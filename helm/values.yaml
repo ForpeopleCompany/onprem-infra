@@ -23,6 +23,11 @@ smtp:
   enabled: false
   ssl: ""
   sendToRecipient: false
+  userName: ""
+  password: ""
+  server: ""
+  port: 25
+  domains: ""
 
 backup:
   mongodb:

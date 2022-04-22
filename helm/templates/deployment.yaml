@@ -62,7 +62,14 @@ spec:
             - name: OM_SAML_CREATE_USER
               value: {{ .Values.saml.createUser | quote }}
 {{- end }}
-{{- if .Values.smtp.enabled }}              
+{{- if .Values.smtp.enabled }}
+            - name: OM_SMTP_USER
+              value: {{ .Values.smtp.userName | quote }}
+            - name: OM_SMTP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: orgmanager-secrets
+                  key: smtpPassword
             - name: OM_SMTP_MAILFROM
               value: {{ .Values.smtp.mailFrom | quote }}
             - name: OM_SMTP_SERVER
