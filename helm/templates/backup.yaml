@@ -16,6 +16,15 @@ spec:
     requests:
       storage: 1Gi
 ---
+apiVersion: v1    
+kind: Secret
+metadata:
+  name: orgmanager-secrets
+  namespace: backup  
+type: Opaque
+data:
+  mongoUrl: {{ .Values.options.mongoUrl | b64enc }}
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
