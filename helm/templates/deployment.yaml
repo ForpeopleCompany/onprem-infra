@@ -21,6 +21,9 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: storage
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs
       containers:
         - name: orgmanager
           image: cr.yandex/crpj49o8ldonf3nnjpbo/orgmanager:{{ .Values.tag }}
@@ -34,6 +37,8 @@ spec:
           volumeMounts:
               - mountPath: "/root/.aspnet/DataProtection-Keys/"
                 name: aspnetkeys
+              - mountPath: "/app/logs/"
+                name: logs
               - mountPath: {{ .Values.storage.filesystem.mount | quote }}
                 name: storage
           env:
@@ -93,6 +98,8 @@ spec:
 {{- end}}
             - name: OM_LOG_ELASTIC
               value: "http://elasticsearch-logging.kube-system.svc.cluster.local:9200"
+            - name: OM_LOG_FILE
+              value: "/app/logs/log.txt"
             - name: OM_IMPORT_MUTATE
               value: {{ .Values.options.mutateData | quote }}
 {{- if .Values.options.debugEnabled }}

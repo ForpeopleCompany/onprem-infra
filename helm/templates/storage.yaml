@@ -11,3 +11,15 @@ spec:
     requests:
       storage: {{ .Values.storage.filesystem.storage | quote }}
 {{- end }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "logs"
+spec:
+  storageClassName: microk8s-hostpath
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 100mb
